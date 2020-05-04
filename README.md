@@ -1,0 +1,2 @@
+# blazordocker
+BlazorTestRun
