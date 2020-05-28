@@ -1,0 +1,22 @@
+﻿[
+  {
+    "operand1": 1,
+    "operand2": 1,
+    "operator": "+"
+  },
+  {
+    "operand1": 10,
+    "operand2": 15,
+    "operator": "+"
+  },
+  {
+    "operand1": 18,
+    "operand2": 27,
+    "operator": "+"
+  },
+  {
+    "operand1": 17,
+    "operand2": 26,
+    "operator": "+"
+  }
+]

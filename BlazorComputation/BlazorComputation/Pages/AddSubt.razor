@@ -1,0 +1,51 @@
+@page "/addsubt"
+@inject HttpClient Http
+
+<h1>Add / Subtract</h1>
+
+@if (exercises == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        @*<thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>Temp. (F)</th>
+                <th>Summary</th>
+            </tr>
+        </thead>*@
+        <tbody>
+            @foreach (var exercise in exercises)
+            {
+            <tr>
+                <td>@exercise.Operand1</td>
+                <td>@exercise.Operator</td>
+                <td>@exercise.Operand2</td>
+                <td>=</td>
+                <td><input @bind="@exercise.UserAnswer" /></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Excercise[] exercises;
+
+    protected override async Task OnInitializedAsync()
+    {
+        exercises = await Http.GetFromJsonAsync<Excercise[]>("sample-data/excercises.json");
+    }
+
+    public class Excercise
+    {
+        public int Operand1 { get; set; }
+        public int Operand2 { get; set; }
+        public string Operator { get; set; }
+        public string UserAnswer { get; set; }
+    }
+}
